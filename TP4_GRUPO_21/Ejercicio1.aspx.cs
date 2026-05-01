@@ -28,9 +28,27 @@ namespace TP4_GRUPO_21
                 ddlProvincia.DataValueField = "IdProvincia";
                 ddlProvincia.DataBind();
 
-
                 connection.Close();
             }
+        }
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string idProvincia = ddlProvincia.SelectedValue;
+
+            string consultaLoc = "SELECT * FROM Localidades WHERE IdProvincia = " + idProvincia;
+
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            connection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(consultaLoc, connection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            ddlLocalidad.DataSource = sqlDataReader;
+            ddlLocalidad.DataTextField = "NombreLocalidad";
+            ddlLocalidad.DataValueField = "IdLocalidad";
+            ddlLocalidad.DataBind();
+
+            connection.Close();
         }
     }
 }

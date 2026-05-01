@@ -30,5 +30,31 @@ namespace TP4_GRUPO_21
                 connection.Close();
             }
         }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtIdProducto.Text))
+            {
+                string operador = ddlFiltroIdProducto.SelectedValue;
+                string valor = txtIdProducto.Text;
+
+                string consultaFiltrada = "SELECT * FROM Productos WHERE IdProducto " + operador + " " + valor;
+
+                SqlConnection connection = new SqlConnection(cadenaConexion);
+                connection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand(consultaFiltrada, connection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                gvProductos.DataSource = sqlDataReader;
+                gvProductos.DataBind();
+
+                connection.Close();
+            }
+        }
+
+        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }

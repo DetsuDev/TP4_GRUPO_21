@@ -28,14 +28,17 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style2" style="font-weight: bold">PROVINCIA:</td>
                     <td>
-                        <asp:DropDownList ID="ddlProvincia" runat="server">
+                        <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2" style="font-weight: bold">LOCALIDAD:</td>
+                    <td>
+                        <asp:DropDownList ID="ddlLocalidad" runat="server">
+                        </asp:DropDownList>
+                    </td>
                 </tr>
             </table>
         </div>
