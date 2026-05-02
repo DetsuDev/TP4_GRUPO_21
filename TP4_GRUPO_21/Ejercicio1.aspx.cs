@@ -50,5 +50,24 @@ namespace TP4_GRUPO_21
 
             connection.Close();
         }
+        protected void ddlProvinciaFinal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string idProvincia = ddlProvinciaFinal.SelectedValue;
+
+            string consultaLoc = "SELECT * FROM Localidades WHERE IdProvincia = " + idProvincia;
+
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            connection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(consultaLoc, connection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            ddlLocalidadFinal.DataSource = sqlDataReader;
+            ddlLocalidadFinal.DataTextField = "NombreLocalidad";
+            ddlLocalidadFinal.DataValueField = "IdLocalidad";
+            ddlLocalidadFinal.DataBind();
+
+            connection.Close();
+        }
     }
 }
