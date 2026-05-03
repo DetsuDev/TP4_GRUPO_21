@@ -47,6 +47,20 @@ namespace TP4_GRUPO_21
             ddlLocalidad.DataTextField = "NombreLocalidad";
             ddlLocalidad.DataValueField = "IdLocalidad";
             ddlLocalidad.DataBind();
+            connection.Close();
+
+
+            consultaLoc = "SELECT * FROM Provincias WHERE IdProvincia != " + idProvincia;
+            sqlCommand = new SqlCommand(consultaLoc, connection);
+            connection.Open();
+
+            SqlDataReader sqlDataReader2 = sqlCommand.ExecuteReader();
+
+
+            ddlProvinciaFinal.DataSource = sqlDataReader2;
+            ddlProvinciaFinal.DataTextField = "NombreProvincia";
+            ddlProvinciaFinal.DataValueField = "IdProvincia";
+            ddlProvinciaFinal.DataBind();
 
             connection.Close();
         }
