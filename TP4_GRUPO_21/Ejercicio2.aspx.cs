@@ -33,17 +33,23 @@ namespace TP4_GRUPO_21
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string consultaFiltrada = "SELECT * FROM Productos WHERE 1=1";
+            bool filtroIdProducto = false;
+            bool filtroIdCategoria = false;
 
             if (!string.IsNullOrEmpty(txtIdProducto.Text))
             {
                 string operador = ddlFiltroIdProducto.SelectedValue;
                 consultaFiltrada += " AND IdProducto " + operador + " " + txtIdProducto.Text;
+                filtroIdProducto = true;
+
             }
 
             if (!string.IsNullOrEmpty(txtIdCategoria.Text))
             {
                 string operador = ddlFiltroIdCategoria.SelectedValue;
-                consultaFiltrada += " AND IdCategoria " + operador + " " + txtIdCategoria.Text;
+                consultaFiltrada += " AND IdCategoría " + operador + " " + txtIdCategoria.Text;
+                filtroIdCategoria = true;
+
             }
 
             SqlConnection connection = new SqlConnection(cadenaConexion);
@@ -56,6 +62,27 @@ namespace TP4_GRUPO_21
             gvProductos.DataBind();
 
             connection.Close();
+
+            if (filtroIdProducto)
+            {
+                gvProductos.HeaderRow.Cells[0].BackColor = System.Drawing.Color.LightGreen;
+                foreach (GridViewRow row in gvProductos.Rows)
+                {
+                    row.Cells[0].BackColor = System.Drawing.Color.LightGreen;
+                }
+            }
+
+            if (filtroIdCategoria)
+            {
+                gvProductos.HeaderRow.Cells[3].BackColor = System.Drawing.Color.LightBlue;
+                foreach (GridViewRow row in gvProductos.Rows)
+                {
+
+                    row.Cells[3].BackColor = System.Drawing.Color.LightBlue;
+                }
+            }
+
+
 
             txtIdProducto.Text = "";
             txtIdCategoria.Text = "";
@@ -76,5 +103,6 @@ namespace TP4_GRUPO_21
 
             connection.Close();
         }
+
     }
 }

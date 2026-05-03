@@ -33,6 +33,15 @@ namespace TP4_GRUPO_21
         protected global::System.Web.UI.WebControls.DropDownList ddlTemas;
 
         /// <summary>
+        /// Control ddlPrecios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPrecios;
+
+        /// <summary>
         /// Control lbtnVerLibros.
         /// </summary>
         /// <remarks>
