@@ -25,8 +25,14 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style1">Precio:</td>
+                    <td>
+                        <asp:DropDownList ID="ddlPrecios" runat="server">
+                            <asp:ListItem Selected="True" Value="Todos">Todos</asp:ListItem>
+                            <asp:ListItem Value="&lt; 60.0000">&lt; 60.0000</asp:ListItem>
+                            <asp:ListItem Value="&gt; 60.0000">&gt; 60.0000</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

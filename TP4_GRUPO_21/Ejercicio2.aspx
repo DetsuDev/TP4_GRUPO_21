@@ -16,7 +16,7 @@
                 <asp:ListItem Value=">">Mayor a:</asp:ListItem>
                 <asp:ListItem Value="<">Menor a:</asp:ListItem>
             </asp:DropDownList>
-            <asp:TextBox ID="txtIdProducto" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtIdProducto" runat="server" BackColor="LightGreen"></asp:TextBox>
             <br/><br/>
             IdCategoria:
             <asp:DropDownList ID="ddlFiltroIdCategoria" runat="server">
@@ -24,7 +24,7 @@
                 <asp:ListItem Value=">">Mayor a:</asp:ListItem>
                 <asp:ListItem Value="<">Menor a:</asp:ListItem>
             </asp:DropDownList>
-            <asp:TextBox ID="txtIdCategoria" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtIdCategoria" runat="server" BackColor="LightBlue"></asp:TextBox>
             <br/><br/>
             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
             <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar filtro" OnClick="btnQuitarFiltro_Click" />

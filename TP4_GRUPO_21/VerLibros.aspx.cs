@@ -17,8 +17,23 @@ namespace TP4_GRUPO_21
             if (!IsPostBack)
             {
                 string idTema = Request.QueryString["id"];
+                string precio = Request.QueryString["precio"];
 
                 string consultaSQL = "SELECT * FROM Libros WHERE IdTema = " + idTema;
+                if (precio != "Todos")
+                {
+                    if (precio == "< 60.0000")
+                    {
+                        consultaSQL += " AND Precio < 60.0000";
+                    }
+                    else if (precio == "> 60.0000")
+                    {
+                        consultaSQL += " AND Precio > 60.0000";
+                    }
+                }
+                else {
+                    consultaSQL += " AND Precio > 0";
+                }
 
                 SqlConnection connection = new SqlConnection(cadenaConexion);
                 connection.Open();
