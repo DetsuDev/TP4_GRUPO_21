@@ -32,5 +32,10 @@ namespace TP4_GRUPO_21
                 connection.Close();
             }
         }
+        protected void lbtnVerLibros_Click(object sender, EventArgs e)
+        {
+            string idTema = ddlTemas.SelectedValue;
+            Response.Redirect("VerLibros.aspx?id=" + idTema);
+        }
     }
 }

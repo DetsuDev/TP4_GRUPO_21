@@ -71,6 +71,7 @@
     <Content Include="Ejercicio2.aspx" />
     <Content Include="Ejercicio3.aspx" />
     <Content Include="Web.config" />
+    <Content Include="VerLibros.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ejercicio1.aspx.cs">
@@ -95,6 +96,13 @@
       <DependentUpon>Ejercicio3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerLibros.aspx.cs">
+      <DependentUpon>VerLibros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerLibros.aspx.designer.cs">
+      <DependentUpon>VerLibros.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

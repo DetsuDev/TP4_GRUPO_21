@@ -54,7 +54,19 @@ namespace TP4_GRUPO_21
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            //
+            txtIdProducto.Text = "";
+            ddlFiltroIdProducto.SelectedIndex = 0;
+
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            connection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(consultaSQL, connection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            gvProductos.DataSource = sqlDataReader;
+            gvProductos.DataBind();
+
+            connection.Close();
         }
     }
 }

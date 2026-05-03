@@ -34,6 +34,13 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>
+                        <asp:LinkButton ID="lbtnVerLibros" runat="server" OnClick="lbtnVerLibros_Click">Ver Libros</asp:LinkButton>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
             </table>
         </div>
     </form>
