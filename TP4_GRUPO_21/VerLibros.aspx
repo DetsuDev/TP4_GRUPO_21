@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VerLibros.aspx.cs" Inherits="TP4_GRUPO_21.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VerLibros.aspx.cs" Inherits="TP4_GRUPO_21.VerLibros" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h3>Listado de libros:</h3>
+            <asp:GridView ID="gvLibros" runat="server">
+            </asp:GridView>
+            <br />
+            <asp:LinkButton ID="lbtnConsultarOtroTema" runat="server" OnClick="lbtnConsultarOtroTema_Click">Consultar otro tema</asp:LinkButton>
         </div>
     </form>
 </body>

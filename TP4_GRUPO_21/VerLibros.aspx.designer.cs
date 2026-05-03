@@ -11,7 +11,7 @@ namespace TP4_GRUPO_21
 {
 
 
-    public partial class WebForm1
+    public partial class VerLibros
     {
 
         /// <summary>
@@ -22,5 +22,23 @@ namespace TP4_GRUPO_21
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control gvLibros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvLibros;
+
+        /// <summary>
+        /// Control lbtnConsultarOtroTema.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnConsultarOtroTema;
     }
 }

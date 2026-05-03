@@ -32,26 +32,34 @@ namespace TP4_GRUPO_21
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            string consultaFiltrada = "SELECT * FROM Productos WHERE 1=1";
+
             if (!string.IsNullOrEmpty(txtIdProducto.Text))
             {
                 string operador = ddlFiltroIdProducto.SelectedValue;
-                string valor = txtIdProducto.Text;
-
-                string consultaFiltrada = "SELECT * FROM Productos WHERE IdProducto " + operador + " " + valor;
-
-                SqlConnection connection = new SqlConnection(cadenaConexion);
-                connection.Open();
-
-                SqlCommand sqlCommand = new SqlCommand(consultaFiltrada, connection);
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                gvProductos.DataSource = sqlDataReader;
-                gvProductos.DataBind();
-
-                connection.Close();
+                consultaFiltrada += " AND IdProducto " + operador + " " + txtIdProducto.Text;
             }
-        }
 
+            if (!string.IsNullOrEmpty(txtIdCategoria.Text))
+            {
+                string operador = ddlFiltroIdCategoria.SelectedValue;
+                consultaFiltrada += " AND IdCategoria " + operador + " " + txtIdCategoria.Text;
+            }
+
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            connection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(consultaFiltrada, connection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            gvProductos.DataSource = sqlDataReader;
+            gvProductos.DataBind();
+
+            connection.Close();
+
+            txtIdProducto.Text = "";
+            txtIdCategoria.Text = "";
+        }
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
             txtIdProducto.Text = "";
