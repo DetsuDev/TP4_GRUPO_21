@@ -15,8 +15,10 @@ namespace TP4_GRUPO_21
         private string consultaSQL = "SELECT * FROM Provincias";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            if (!IsPostBack)
             {
+
                 SqlConnection connection = new SqlConnection(cadenaConexion);
                 connection.Open();
 
@@ -62,6 +64,8 @@ namespace TP4_GRUPO_21
             ddlProvinciaFinal.DataBind();
             ddlProvinciaFinal.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
 
+            ddlLocalidadFinal.Items.Clear();
+
             connection.Close();
         }
         protected void ddlProvinciaFinal_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,6 +86,13 @@ namespace TP4_GRUPO_21
             ddlLocalidadFinal.DataBind();
             ddlLocalidadFinal.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
             connection.Close();
+        }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            lblViaje.ForeColor = Color.Green;
+            lblViaje.Text = "Viaje confirmado: " + ddlProvincia.SelectedItem.Text + ", " + ddlLocalidad.SelectedItem.Text + " a " + ddlProvinciaFinal.SelectedItem.Text + ", " + ddlLocalidadFinal.SelectedItem.Text;
+            lblViaje.Visible = true;
         }
     }
 }
