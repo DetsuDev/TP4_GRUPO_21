@@ -36,11 +36,10 @@ namespace TP4_GRUPO_21
         {
             string idProvincia = ddlProvincia.SelectedValue;
 
-            string consultaLoc = "SELECT * FROM Localidades WHERE IdProvincia = " + idProvincia;
-
             SqlConnection connection = new SqlConnection(cadenaConexion);
-            connection.Open();
+            connection.Open(); 
 
+            string consultaLoc = "SELECT * FROM Localidades WHERE IdProvincia = " + idProvincia;
             SqlCommand sqlCommand = new SqlCommand(consultaLoc, connection);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
@@ -49,15 +48,13 @@ namespace TP4_GRUPO_21
             ddlLocalidad.DataValueField = "IdLocalidad";
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
-            connection.Close();
 
+            sqlDataReader.Close(); 
 
-            consultaLoc = "SELECT * FROM Provincias WHERE IdProvincia != " + idProvincia;
-            sqlCommand = new SqlCommand(consultaLoc, connection);
-            connection.Open();
+            string consultaProv = "SELECT * FROM Provincias WHERE IdProvincia != " + idProvincia;
+            sqlCommand = new SqlCommand(consultaProv, connection);
 
             SqlDataReader sqlDataReader2 = sqlCommand.ExecuteReader();
-
 
             ddlProvinciaFinal.DataSource = sqlDataReader2;
             ddlProvinciaFinal.DataTextField = "NombreProvincia";

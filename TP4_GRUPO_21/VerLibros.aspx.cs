@@ -43,7 +43,15 @@ namespace TP4_GRUPO_21
 
                 gvLibros.DataSource = sqlDataReader;
                 gvLibros.DataBind();
+
+                decimal total = 0;
+                foreach (GridViewRow fila in gvLibros.Rows)
+                {
+                    total += Convert.ToDecimal(fila.Cells[3].Text);
+                }
+
                 lblResultados.Text = "Se encontraron " + gvLibros.Rows.Count + " libros.";
+                lblPrecioTotal.Text = "El precio total de los libros es: $" + total.ToString(); 
 
 
                 connection.Close();

@@ -17,6 +17,8 @@
             <asp:LinkButton ID="lbtnConsultarOtroTema" runat="server" OnClick="lbtnConsultarOtroTema_Click">Consultar otro tema</asp:LinkButton>
             <br />
             <asp:Label ID="lblResultados" runat="server" Font-Bold="True"></asp:Label>
+            <br />
+            <asp:Label ID="lblPrecioTotal" runat="server" Font-Bold="True"></asp:Label>
         </div>
     </form>
 </body>

@@ -28,7 +28,6 @@ namespace TP4_GRUPO_21
                 ddlTemas.DataValueField = "IdTema";
                 ddlTemas.DataBind();
 
-
                 connection.Close();
             }
         }
