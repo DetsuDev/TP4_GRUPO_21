@@ -43,6 +43,8 @@ namespace TP4_GRUPO_21
 
                 gvLibros.DataSource = sqlDataReader;
                 gvLibros.DataBind();
+                lblResultados.Text = "Se encontraron " + gvLibros.Rows.Count + " libros.";
+
 
                 connection.Close();
             }

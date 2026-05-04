@@ -27,7 +27,8 @@ namespace TP4_GRUPO_21
                 ddlProvincia.DataTextField = "NombreProvincia";
                 ddlProvincia.DataValueField = "IdProvincia";
                 ddlProvincia.DataBind();
-
+                ddlProvincia.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
+                ddlProvinciaFinal.Items.Insert(0, new ListItem("-- Primero elegí destino inicio --", "0"));
                 connection.Close();
             }
         }
@@ -47,6 +48,7 @@ namespace TP4_GRUPO_21
             ddlLocalidad.DataTextField = "NombreLocalidad";
             ddlLocalidad.DataValueField = "IdLocalidad";
             ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
             connection.Close();
 
 
@@ -61,6 +63,7 @@ namespace TP4_GRUPO_21
             ddlProvinciaFinal.DataTextField = "NombreProvincia";
             ddlProvinciaFinal.DataValueField = "IdProvincia";
             ddlProvinciaFinal.DataBind();
+            ddlProvinciaFinal.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
 
             connection.Close();
         }
@@ -80,7 +83,7 @@ namespace TP4_GRUPO_21
             ddlLocalidadFinal.DataTextField = "NombreLocalidad";
             ddlLocalidadFinal.DataValueField = "IdLocalidad";
             ddlLocalidadFinal.DataBind();
-
+            ddlLocalidadFinal.Items.Insert(0, new ListItem("-- Seleccionar --", "0"));
             connection.Close();
         }
     }

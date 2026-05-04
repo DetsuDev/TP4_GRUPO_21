@@ -91,6 +91,8 @@ namespace TP4_GRUPO_21
         {
             txtIdProducto.Text = "";
             ddlFiltroIdProducto.SelectedIndex = 0;
+            txtIdCategoria.Text = "";
+            ddlFiltroIdCategoria.SelectedIndex = 0;
 
             SqlConnection connection = new SqlConnection(cadenaConexion);
             connection.Open();
